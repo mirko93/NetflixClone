@@ -88,3 +88,21 @@
     font-weight: 400;
     text-align: center;
 }
+
+/* PREVIEW VIDEO */
+.previewImage,
+.previewVideo {
+    width: 100%;
+} 
+
+.previewContainer {
+    position: relative;
+    display: flex;
+}
+
+.previewOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+}
