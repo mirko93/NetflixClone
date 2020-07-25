@@ -5,15 +5,15 @@ class Entity {
     private $con;
     private $sqlData;
 
-    public function __construct($con, $sqlData)
+    public function __construct($con, $input)
     {
         $this->con = $con;
         
-        if (is_array($sqlData)) {
-            $this->sqlData = $sqlData;
+        if (is_array($input)) {
+            $this->sqlData = $input;
         } else {
             $query = $this->con->prepare("SELECT * FROM entities WHERE id = :id");
-            $query->binValue(":id", $sqlData);
+            $query->bindValue(":id", $input);
             $query->execute();
 
             $this->sqlData = $query->fetch(PDO::FETCH_ASSOC);
@@ -38,5 +38,33 @@ class Entity {
     public function getPreview()
     {
         return $this->sqlData["preview"];
+    }
+
+    public function getSeasons()
+    {
+        $query = $this->con->prepare("SELECT * FROM videos WHERE entityId = :id AND isMovie = 0 ORDER BY season, episode ASC");
+        $query->bindValue(":id", $this->getId());
+        $query->execute();
+
+        $seasons = [];
+        $videos = [];
+        $currentSeason = null;
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+
+            if ($currentSeason != null && $currentSeason != $row["season"]) {
+                $seasons[] = new Season($currentSeason, $videos);
+                $videos = [];
+            }
+
+            $currentSeason = $row["season"];
+            $videos[] = new Video($this->con, $row);
+        }
+
+        if (sizeof($videos) != 0) {
+            $seasons[] = new Season($currentSeason, $videos);
+        }
+
+        return $seasons;
     }
 }

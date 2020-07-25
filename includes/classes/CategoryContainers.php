@@ -54,7 +54,7 @@ class CategoryContainers {
                         <h3>$title</h3>
                     </a>
 
-                    <div class='entites'>
+                    <div class='entities'>
                         $entitiesHtml
                     </div>
                 </div>";

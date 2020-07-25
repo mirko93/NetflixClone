@@ -181,14 +181,27 @@ a {
     color: #000;
 }
 
+.previewCategories {
+    padding: 0 50px;
+}
+
 .category {
     display: flex;
     flex-direction: column;
     padding: 10px 0;
 }
 
-.entities {
+.category .entities {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+}
+
+.errorBanner {
+    color: #fff;
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
 }
