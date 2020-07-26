@@ -45,7 +45,7 @@ class SeasonProvider {
         $id = $video->getId();
         $thumbnail = $video->getThumbnail();
         $name = $video->getTitle();
-        $description = $video->getId();
+        $description = $video->getDescription();
         $episodeNumber = $video->getEpisodeNumber();
 
         return "<a href='watch.php?id=$id'>
@@ -54,7 +54,7 @@ class SeasonProvider {
                             <img src='$thumbnail'>
 
                             <div class='videoInfo'>
-                                <h4>$name</h4>
+                                <h4>$episodeNumber. $name</h4>
                                 <span>$description</span>
                             </div>
                         </div>
