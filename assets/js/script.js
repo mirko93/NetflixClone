@@ -1,5 +1,5 @@
 function volumeToggle(button) {
-    var muted = $(".previewVideo").prop("muted");
+    let muted = $(".previewVideo").prop("muted");
     $(".previewVideo").prop("muted", !muted);
 
     $(button).find("i").toggleClass("fa-volume-mute");
@@ -16,7 +16,7 @@ function goBack() {
 }
 
 function startHideTimer() {
-    var timeout = null;
+    let timeout = null;
     
     $(document).on("mousemove", function() {
         clearTimeout(timeout);
@@ -25,7 +25,7 @@ function startHideTimer() {
         timeout = setTimeout(function() {
             $(".watchNav").fadeOut();
         }, 2000);
-    })
+    });
 }
 
 function initVideo(videoId, username) {
@@ -37,7 +37,7 @@ function initVideo(videoId, username) {
 function updateProgressTimer(videoId, username) {
     addDuration(videoId, username);
 
-    var timer;
+    let timer;
 
     $("video").on("playing", function(event) {
         window.clearInterval(timer);
@@ -48,7 +48,7 @@ function updateProgressTimer(videoId, username) {
     .on("ended", function() {
         setFinished(videoId, username);
         window.clearInterval(timer);
-    })
+    });
 }
 
 function addDuration(videoId, username) {
@@ -56,7 +56,7 @@ function addDuration(videoId, username) {
         if(data !== null && data !== "") {
             alert(data);
         }
-    })
+    });
 }
 
 function updateProgress(videoId, username, progress) {
@@ -64,7 +64,7 @@ function updateProgress(videoId, username, progress) {
         if(data !== null && data !== "") {
             alert(data);
         }
-    })
+    });
 }
 
 function setFinished(videoId, username) {
@@ -72,7 +72,7 @@ function setFinished(videoId, username) {
         if(data !== null && data !== "") {
             alert(data);
         }
-    })
+    });
 }
 
 function setStartTime(videoId, username) {
@@ -85,6 +85,6 @@ function setStartTime(videoId, username) {
         $("video").on("canplay", function() {
             this.currentTime = data;
             $("video").off("canplay");
-        })
-    })
+        });
+    });
 }
