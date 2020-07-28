@@ -310,3 +310,52 @@ a {
     top: 5px;
     left: 5px;
 }
+
+/* NAVIGATION */
+.topBar {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    height: 70px;
+    box-sizing: border-box;
+    min-width: 1050px;
+    transition: background-color 200ms linear;
+}
+
+.topBar.scrolled {
+    background-color: #141414;
+    transition: background-color 200ms linear;
+}
+
+.topBar .logoContainer {
+    height: 40px;
+}
+
+.topBar .logoContainer img {
+    height: 100%;
+}
+
+.topBar .navLinks {
+    display: flex;
+    list-style: none;
+}
+
+.topBar .navLinks li a {
+    color: #fff;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.topBar .rightItems {
+    flex: 1;
+    text-align: right;
+}
+
+.topBar .rightItems i {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+}

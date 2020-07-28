@@ -1,3 +1,8 @@
+$(document).scroll(function() {
+    let isScrolled = $(this).scrollTop() > $(".topBar").height();
+    $(".topBar").toggleClass("scrolled", isScrolled);
+});
+
 function volumeToggle(button) {
     let muted = $(".previewVideo").prop("muted");
     $(".previewVideo").prop("muted", !muted);
