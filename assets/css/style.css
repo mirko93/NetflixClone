@@ -379,3 +379,50 @@ a {
     padding: 5px 10px;
     border-radius: 3px;
 }
+
+/* profle style */
+.settingsContainer {
+    padding-top: 60px;
+    background-color: transparent;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.settingsContainer h2 {
+    color: #fff;
+}
+
+.settingsContainer .formSection {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 20px;
+}
+
+.settingsContainer form input {
+    width: 300px;
+    height: 40px;
+    font-size: 15px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 3px;
+    padding: 0 10px;
+}
+
+.settingsContainer form button {
+    background-color: #dc1928;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+}
+
+.alertError {
+    color: #dc1928;
+}
+
+.alertSuccess {
+    color: #2ecc71;
+}
