@@ -29,4 +29,29 @@ class User {
     {
         return $this->sqlData["email"];
     }
+
+    public function getUsername()
+    {
+        return $this->sqlData["username"];
+    }
+
+    public function getIsSubscribed()
+    {
+        return $this->sqlData["isSubscribed"];
+    }
+
+    public function setIsSubscribed($value)
+    {
+        $query = $this->con->prepare("UPDATE users SET isSubscribed = :isSubscribed
+                                    WHERE username = :username");
+        $query->bindValue(":isSubscribed", $value);
+        $query->bindValue(":username", $this->getUsername());
+
+        if ($query->execute()) {
+            $this->sqlData["isSubscribed"] = $value;
+            return true;
+        }
+
+        return false;
+    }
 }

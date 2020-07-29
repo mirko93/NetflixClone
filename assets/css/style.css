@@ -426,3 +426,7 @@ a {
 .alertSuccess {
     color: #2ecc71;
 }
+
+.formSection a {
+    color: #f0ff0f;
+}
